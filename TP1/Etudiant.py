@@ -12,7 +12,7 @@ class Etudiant(Personne):
             self.list_notes.append(note)
     
     def afficherEtudiant(self):
-        print(f"Les informations de l'etudiant numero {self.id} sont : \n\t Nom : {self.name} || Age : {self.age} || Filiere : {self.filiere} || Niveau : {self.niveau} || Notes : {self.list_notes if len(self.list_notes) != 0 else 'Aucune note'} || Moyenne : {self.moyenne() if len(self.list_notes) != 0 else 0}")
+        print(f"Les informations de l'etudiant numero {self.id} sont : \n\t Nom : {self.name} || Prenom : {self.prenom} || Age : {self.age} || Filiere : {self.filiere} || Niveau : {self.niveau} || Notes : {self.list_notes if len(self.list_notes) != 0 else 'Aucune note'} || Moyenne : {self.moyenne() if len(self.list_notes) != 0 else 0}")
 
     def moyenne(self): 
         if len(self.list_notes) == 0 :

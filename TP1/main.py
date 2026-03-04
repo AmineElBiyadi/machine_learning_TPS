@@ -1,9 +1,7 @@
 from EtudiantGI import EtudiantGI
 from Etudiant import Etudiant
 
-quit = 0
 students = {}
-note = 0 
 
 def ajouter_etudiant():
     print("---------- Ajouter un etudiant ----------")
@@ -137,7 +135,9 @@ def classer_et_afficher_etudiants_par_moyenne():
         return
     students_sorted = classer_etudiants_par_moyenne(choice)
     for etudiant in students_sorted : 
+        print("-------------------------------------------------")
         etudiant.afficherEtudiant()
+    print("-------------------------------------------------")
 
 def supprimer_etudiant():
     print("---------- Supprimer un etudiant ----------")
@@ -149,6 +149,7 @@ def supprimer_etudiant():
     print("L'etudiant est supprime avec succes.")
 
 def main() : 
+    quit = 0
     while quit == 0:
         print("\n\n=================================================")
         print("     1. Ajouter etudiant ")
