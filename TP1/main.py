@@ -3,26 +3,31 @@ from Etudiant import Etudiant
 
 students = {}
 
+# everything is done except the suplumentary information like the email and the ville 
+
+
 def ajouter_etudiant():
     print("---------- Ajouter un etudiant ----------")
     id = int(input("Entrez l'ID de l'etudiant : "))
+    if students.get(id) is not None:
+        print("Un etudiant existe deja avec cet ID .")
+        while students.get(id) is not None:
+            id = int(input("Reentrez l'ID de l'etudiant : "))
+
     name = input("Entrez le nom de l'etudiant : ")
     prenom = input("Entrez le prenom de l'etudiant : ")
     age = int(input("Entrez l'age de l'etudiant : "))
     filiere = input("Entrez la filiere de l'etudiant (par defaut GI): ")
     niveau = input("Entrez le niveau de l'etudiant (par defaut GI2): ")
 
-    if students.get(id) is not None:
-        print("Un etudiant existe deja avec cet ID .")
-        return
-
-    if filiere == "":
+    if filiere.upper() == "GI" or filiere == "" :
+        option = input("Entrez l'option de l'etudiant : ")
         if niveau == "":
             niveau = "GI2"
-        etudiant = EtudiantGI(id, name ,prenom, age, niveau)
+        etudiant = EtudiantGI(id, name ,prenom, age, niveau, option)
     else:
         if niveau == "":
-            print("Le niveau est obligatoire si la filiere est renseignee.")
+            print("Le niveau est obligatoire si la filiere n'est pas GI !!.")
             while niveau == "":
                 niveau = input("Reentrez le niveau de l'etudiant : ")
 
