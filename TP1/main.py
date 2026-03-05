@@ -3,9 +3,6 @@ from Etudiant import Etudiant
 
 students = {}
 
-# everything is done except the suplumentary information like the email and the ville 
-
-
 def ajouter_etudiant():
     print("---------- Ajouter un etudiant ----------")
     id = int(input("Entrez l'ID de l'etudiant : "))
@@ -17,21 +14,30 @@ def ajouter_etudiant():
     name = input("Entrez le nom de l'etudiant : ")
     prenom = input("Entrez le prenom de l'etudiant : ")
     age = int(input("Entrez l'age de l'etudiant : "))
+    email = input("Entrez l'email de l'etudiant (optionnel , entrez pour passer) : ")
+    ville = input("Entrez la ville de l'etudiant (optionnel , entrez pour passer) : ")
     filiere = input("Entrez la filiere de l'etudiant (par defaut GI): ")
     niveau = input("Entrez le niveau de l'etudiant (par defaut GI2): ")
+
+    kwargs = {}
+    if email != "":
+        kwargs["email"] = email
+    if ville != "":
+        kwargs["ville"] = ville
 
     if filiere.upper() == "GI" or filiere == "" :
         option = input("Entrez l'option de l'etudiant : ")
         if niveau == "":
             niveau = "GI2"
-        etudiant = EtudiantGI(id, name ,prenom, age, niveau, option)
+        etudiant = EtudiantGI(id, name ,prenom, age, niveau, option , **kwargs)
+    
     else:
         if niveau == "":
             print("Le niveau est obligatoire si la filiere n'est pas GI !!.")
             while niveau == "":
                 niveau = input("Reentrez le niveau de l'etudiant : ")
 
-        etudiant = Etudiant(id, name ,prenom, age, filiere, niveau)
+        etudiant = Etudiant(id, name ,prenom, age, filiere, niveau , **kwargs)
 
     students[id] = etudiant
     print("L'etudiant est ajoute avec succes.")
