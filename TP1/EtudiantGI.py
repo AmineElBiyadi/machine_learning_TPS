@@ -7,5 +7,4 @@ class EtudiantGI(Etudiant):
         self.option = option
 
     def afficherEtudiant(self):
-        print(f"Les informations de l'etudiant numero {self.id} sont : \n\t Nom : {self.name} || Prenom : {self.prenom} || Age : {self.age} || Filiere : {self.filiere} || Niveau : {self.niveau} || Notes : {self.list_notes if len(self.list_notes) != 0 else 'Aucune note'} || Moyenne : {self.moyenne() if len(self.list_notes) != 0 else 0}")
-    
+        print(f"Les informations de l'etudiant numero {self.id} sont : \n\t Nom : {self.name} || Prenom : {self.prenom} || Age : {self.age} || Filiere : {self.filiere} || Niveau : {self.niveau} || Option : {self.option} || Notes : {self.list_notes if len(self.list_notes) != 0 else 'Aucune note'} || Moyenne : {self.moyenne() if len(self.list_notes) != 0 else 0}")
